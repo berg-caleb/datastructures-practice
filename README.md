@@ -1,12 +1,10 @@
-I want to create a bunch of the simple, most common data structures from scratch in various programing languages. This is a project I did in C++ in my intro to CS 2 class at UMD, and I think it's a great way to become more familiar with different languages and their quirks. Let's start with Python.
+I want to create a bunch of the simple, most common data structures from scratch in various programing languages. This is a project I did in C++ in my intro to CS 2 class at UMD, and I think it's a great way to become more familiar with different languages and their quirks. Because the main goal of this project is to learn major features of different languages, I will be allowing my study to wander to include concepts I see repeated in multiple places, even when they might not be directly applicable to the structure I'm working on. Let's start with Python.
 
 # [Lists](https://www.geeksforgeeks.org/python-lists/)
 
 While lists are simple enough that I won't try to recreate them in Python, they are certainly worth talking about. Lists are Python's alternative to arrays. They are dynamicly sized, and may contain mixed types because it (usually, but maybe not always) "stores references at contiguous locations and it's actual items maybe stored at different locations" (I'm sure mixed types will never get confusing 🙄).
 
 ![pythonlist.webp](assets/python-list.webp?t=1740768088261)[geeksforgeeks.org/python-lists](https://www.geeksforgeeks.org/python-lists/)
-
-
 
 # Linked Lists
 
@@ -24,7 +22,22 @@ Searching for information about Python pointers led me to this stack overflow qu
 
 Next, I'm checking out this website, which talks a little more about **why** pointers don't exist in Python. It also claims to offer a way to simulate them, and a package   **ctypes** that lets me use Python's inner workings of C to use real pointers.
 
+#### Mutable and immutable objects
 
+Interestingly, the first thing this article talks about is **mutable and immutable objects**. Clearly this is an important distinction, however recognizing whether an object is mutable or not isn't intuative to me. So I'd like to investigate consistent ways to differentiate the two. One option that I [found](https://www.geeksforgeeks.org/python-difference-between-list-and-tuple/) involves simply trying to modify the object in some way. This should give a Type Error. However this feels like a bad idea for a few reasons. First errors may vary between different objects, packages, and code styles. And secondly, this just isn't consistent. While modifying an element of a tuple gives a TypeError as shown, modifying an int, float, or string doesn't despite each being immutable. This is because, as previously described, the objects are simply being discarded and replaced by a new object with the correct value. Finding information on how to idenify whether an arbitrary object is mutable or not has proved mildly challenging. Many guides and forum posts refer to specific object types, and fail to talk about more general cases. After this slight difficulty I checked with GPT looking for advice on what types of things I should be searching for.
+
+#### id()
+
+GPT showed me the id() funciton and how I could use it to determine if an object was stored in the same location at two different points in time. I thought this was quite promising, and decided to look into it further. [W3schools](https://www.w3schools.com/python/ref_func_id.asp) mentions that some objects have constant unique IDs (e.g. integers -5 to 256). While I have a few guesses as to what this may mean, I did some troubleshooting on this to try and things that standout, however I had quite a difficult time as IDs outside of the constant unique IDs behaved very unpredictably, often (but not always) remaining the same when I expected them to change. This is likely just that these IDs are not guaranteed to be the same, but could be.
+
+TODO do a couple examples with mutable objects and show that modifying a mutable object does not change the id.
+
+
+TODO:
+
+* [ ]  Investigate Python pointers until I find something I think might work for a linked list
+* [ ]  Figure out how Python linked lists work, implement some basic functionality, and write tests for them
+* [ ]  Design my own linked list objects
 
 
 
