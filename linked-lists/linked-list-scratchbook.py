@@ -63,6 +63,7 @@
 # a = 999999799
 # print(id(a))
 #
+# #using the del statement https://usavps.com/blog/58847/
 # del a
 #
 # a = 999999799
@@ -80,3 +81,4 @@
 # print(id(0.0))
 # a=0.0
 # print(id(a))
+
